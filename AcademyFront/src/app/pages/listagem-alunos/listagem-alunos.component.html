@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h2>Lista de Alunos</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Matricula</th>
+          <th>Nascimento</th>
+          <th>Data Cadastro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Aluno of Alunos">
+          <td>{{Aluno.id}}</td>
+          <td>{{Aluno.nome}}</td>
+          <td>{{Aluno.matricula}}</td>
+          <td>{{Aluno.nascimento}}</td>
+          <td>{{Aluno.dataHoraCadastro}}</td>
+          <td>
+            <button class="btn btn-info me-2" (click)="editarAluno(Aluno)">Editar</button>
+            <button class="btn btn-danger" *ngIf="Aluno.id" (click)="excluirAluno(Aluno.id!)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="novoAluno()">Novo Aluno</button>
+  </div>
