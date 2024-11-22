@@ -7,12 +7,16 @@ import { ListagemAlunosComponent } from './pages/listagem-alunos/listagem-alunos
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { NovoAlunoComponent } from './pages/novo-aluno/novo-aluno.component';
+import { EditarComponent } from './pages/editar/editar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListagemAlunosComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    NovoAlunoComponent,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

@@ -38,11 +38,11 @@ export class ListagemAlunosComponent implements OnInit {
   }
 
   novoAluno(): void {
-    this.router.navigate(['/Alunos/novo']);
+    this.router.navigate(['novo']);
   }
 
   editarAluno(Aluno: Aluno): void {
-    this.router.navigate([`/Alunos/editar/${Aluno.id}`]);
+    this.router.navigate([`/api/aluno/${Aluno.id}`]);
   }
 
 
