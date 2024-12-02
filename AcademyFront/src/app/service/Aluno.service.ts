@@ -35,11 +35,10 @@ export class AlunoService {
   }
   
 
-  atualizarAluno(id: number, aluno: Aluno): Observable<Aluno> {
-    return this.http.put<Aluno>(`${this.apiURL}/${id}`, aluno, { headers: this.headers }).pipe(
-      catchError(this.handleError)
-    );
+  atualizarAluno(aluno: any): Observable<any> {
+    return this.http.put('http://localhost:8080/api/aluno', aluno);
   }
+  
 
   excluirAluno(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiURL}/${id}`, { headers: this.headers }).pipe(

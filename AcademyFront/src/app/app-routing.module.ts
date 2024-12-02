@@ -6,11 +6,11 @@ import { NovoAlunoComponent } from './pages/novo-aluno/novo-aluno.component';
 import { EditarComponent } from './pages/editar/editar.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/principal', pathMatch: 'full'},
   {path: 'alunos', component: ListagemAlunosComponent},
-  {path: 'principal', component: PrincipalComponent},
+  { path: 'editar-aluno/:id', component: EditarComponent },
+  {path: '', component: PrincipalComponent},
   {path: 'criar-conta', component: NovoAlunoComponent},
-  { path: 'editar', component: EditarComponent}
+  {path: 'editar', component: EditarComponent}
 ];
 
 @NgModule({

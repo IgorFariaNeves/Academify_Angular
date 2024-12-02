@@ -42,8 +42,9 @@ export class ListagemAlunosComponent implements OnInit {
   }
 
   editarAluno(Aluno: Aluno): void {
-    this.router.navigate([`/editar`]);
+    this.router.navigate([`/editar-aluno/${Aluno.id}`]);
   }
+  
 
 
 }

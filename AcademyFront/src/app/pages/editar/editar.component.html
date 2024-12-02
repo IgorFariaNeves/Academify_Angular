@@ -1,1 +1,32 @@
-<p>editar works!</p>
+<div class="editar-aluno-container">
+    <h2>Editar Aluno</h2>
+    <form [formGroup]="formAluno" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome" />
+        <div *ngIf="formAluno.get('nome')?.invalid && formAluno.get('nome')?.touched">
+          Nome é obrigatório e deve ter pelo menos 3 caracteres.
+        </div>
+      </div>
+  
+      <div>
+        <label for="matricula">Matrícula</label>
+        <input id="matricula" type="text" formControlName="matricula" />
+        <div *ngIf="formAluno.get('matricula')?.invalid && formAluno.get('matricula')?.touched">
+          Matrícula é obrigatória e deve ser um número válido.
+        </div>
+      </div>
+  
+      <div>
+        <label for="nascimento">Data de Nascimento</label>
+        <input id="nascimento" type="date" formControlName="nascimento" />
+        <div *ngIf="formAluno.get('nascimento')?.invalid && formAluno.get('nascimento')?.touched">
+          Data de nascimento é obrigatória.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="formAluno.invalid">Salvar Alterações</button>
+      <p *ngIf="mensagemErro" class="error">{{ mensagemErro }}</p>
+    </form>
+  </div>
+  
