@@ -42,7 +42,7 @@ export class ListagemAlunosComponent implements OnInit {
   }
 
   editarAluno(Aluno: Aluno): void {
-    this.router.navigate([`/api/aluno/${Aluno.id}`]);
+    this.router.navigate([`/editar`]);
   }
 
 

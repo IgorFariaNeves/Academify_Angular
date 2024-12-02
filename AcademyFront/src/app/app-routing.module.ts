@@ -7,9 +7,9 @@ import { EditarComponent } from './pages/editar/editar.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/principal', pathMatch: 'full'},
-  {path: 'listagem', component: ListagemAlunosComponent},
+  {path: 'alunos', component: ListagemAlunosComponent},
   {path: 'principal', component: PrincipalComponent},
-  {path: 'novo', component: NovoAlunoComponent},
+  {path: 'criar-conta', component: NovoAlunoComponent},
   { path: 'editar', component: EditarComponent}
 ];
 
@@ -17,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {  }

@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/alunos">Listagem de Alunos</a></li>
+      <li *ngIf="!isUsuarioLogado"><a routerLink="/criar-conta">Criar Conta</a></li>
+      <li *ngIf="isUsuarioLogado"><a routerLink="/conta">Conta</a></li>
+      <li *ngIf="isUsuarioLogado"><a (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  
