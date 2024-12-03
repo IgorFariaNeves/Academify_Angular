@@ -9,7 +9,11 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { NovoAlunoComponent } from './pages/novo-aluno/novo-aluno.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { MenuComponent } from './pages/menu/menu.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importe aqui
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { VisualizarAlunoComponent } from './pages/visualizar-aluno/visualizar-aluno.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +22,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importe aq
     PrincipalComponent,
     NovoAlunoComponent,
     EditarComponent,
-    MenuComponent
+    MenuComponent,
+    VisualizarAlunoComponent
   ],
   imports: [
+    BrowserModule,
+    MatTableModule,
+    MatButtonModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,

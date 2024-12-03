@@ -2,16 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Aluno } from '../../../model/Aluno';
 import { AlunoService } from '../../service/Aluno.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { VisualizarAlunoComponent } from '../visualizar-aluno/visualizar-aluno.component';  // Componente de Visualização
+
 @Component({
   selector: 'app-listagem-alunos',
   templateUrl: './listagem-alunos.component.html',
-  styleUrl: './listagem-alunos.component.scss'
+  styleUrls: ['./listagem-alunos.component.scss']
 })
 export class ListagemAlunosComponent implements OnInit {
 
   Alunos: Aluno[] = [];
+  displayedColumns: string[] = ['id', 'nome', 'matricula', 'nascimento', 'dataHoraCadastro', 'actions'];
 
-  constructor(private AlunoService: AlunoService, private router: Router) { }
+  constructor(private AlunoService: AlunoService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.carregarAlunos();
@@ -38,18 +42,16 @@ export class ListagemAlunosComponent implements OnInit {
   }
 
   novoAluno(): void {
-    this.router.navigate(['novo']);
+    this.router.navigate(['/criar-conta']);
   }
 
-  editarAluno(Aluno: Aluno): void {
-    this.router.navigate([`/editar-aluno/${Aluno.id}`]);
+  editarAluno(aluno: Aluno): void {
+    this.router.navigate([`/editar-aluno/${aluno.id}`]);
   }
-  
 
-
+  visualizarAluno(aluno: Aluno): void {
+    this.dialog.open(VisualizarAlunoComponent, {
+      data: aluno
+    });
+  }
 }
-
-
-
-
-

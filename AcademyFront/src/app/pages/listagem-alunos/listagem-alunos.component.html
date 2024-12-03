@@ -1,28 +1,43 @@
 <div class="container mt-4">
-    <h2>Lista de Alunos</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Matricula</th>
-          <th>Nascimento</th>
-          <th>Data Cadastro</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let Aluno of Alunos">
-          <td>{{Aluno.id}}</td>
-          <td>{{Aluno.nome}}</td>
-          <td>{{Aluno.matricula}}</td>
-          <td>{{Aluno.nascimento}}</td>
-          <td>{{Aluno.dataHoraCadastro}}</td>
-          <td>
-            <button class="btn btn-info me-2" (click)="editarAluno(Aluno)">Editar</button>
-            <button class="btn btn-danger" *ngIf="Aluno.id" (click)="excluirAluno(Aluno.id!)">Excluir</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <button class="btn btn-primary" (click)="novoAluno()">Novo Aluno</button>
-  </div>
+  <h2>Lista de Alunos</h2>
+  <table mat-table [dataSource]="Alunos" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let aluno">{{ aluno.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let aluno">{{ aluno.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="matricula">
+      <th mat-header-cell *matHeaderCellDef>Matrícula</th>
+      <td mat-cell *matCellDef="let aluno">{{ aluno.matricula }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nascimento">
+      <th mat-header-cell *matHeaderCellDef>Nascimento</th>
+      <td mat-cell *matCellDef="let aluno">{{ aluno.nascimento }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataHoraCadastro">
+      <th mat-header-cell *matHeaderCellDef>Data Cadastro</th>
+      <td mat-cell *matCellDef="let aluno">{{ aluno.dataHoraCadastro }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let aluno">
+        <button mat-button (click)="editarAluno(aluno)">Editar</button>
+        <button mat-button color="warn" (click)="excluirAluno(aluno.id)">Excluir</button>
+        <button mat-button color="accent" (click)="visualizarAluno(aluno)">Visualizar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <button mat-raised-button color="primary" (click)="novoAluno()">Novo Aluno</button>
+</div>
