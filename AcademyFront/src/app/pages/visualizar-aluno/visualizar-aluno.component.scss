@@ -1,0 +1,39 @@
+.dialog-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Cor verde para destacar o título */
+    text-align: center;
+  }
+  
+  .dialog-content {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .dialog-item {
+    margin-bottom: 15px;
+  }
+  
+  .dialog-item p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  
+  .close-button {
+    background-color: #FF5722;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    &:hover {
+      background-color: #D84315;
+    }
+  }
+  

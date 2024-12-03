@@ -14,6 +14,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { VisualizarAlunoComponent } from './pages/visualizar-aluno/visualizar-aluno.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,11 @@ import { VisualizarAlunoComponent } from './pages/visualizar-aluno/visualizar-al
     VisualizarAlunoComponent
   ],
   imports: [
+    CommonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    BrowserAnimationsModule,
     BrowserModule,
     MatTableModule,
     MatButtonModule,
@@ -34,7 +44,7 @@ import { VisualizarAlunoComponent } from './pages/visualizar-aluno/visualizar-al
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule, // Adicione aqui em imports
+    ReactiveFormsModule
   ],
   providers: [ provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
