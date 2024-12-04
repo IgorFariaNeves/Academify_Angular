@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ListagemAlunosComponent implements OnInit {
   Alunos: Aluno[] = [];
-  filteredAlunos = new MatTableDataSource<Aluno>(this.Alunos);
+  filteredAlunos: MatTableDataSource<Aluno> = new MatTableDataSource();
   displayedColumns: string[] = ['id', 'nome', 'matricula', 'nascimento', 'dataHoraCadastro', 'actions'];
   searchQuery: string = '';
 
@@ -22,14 +22,22 @@ export class ListagemAlunosComponent implements OnInit {
 
   ngOnInit(): void {
     this.carregarAlunos();
-    this.filteredAlunos.paginator = this.paginator;
   }
 
   carregarAlunos(): void {
     this.AlunoService.listarAlunos().subscribe(
       data => {
         this.Alunos = data;
-        this.filteredAlunos.data = data;
+        this.filteredAlunos = new MatTableDataSource<Aluno>(this.Alunos);
+        this.filteredAlunos.paginator = this.paginator;
+        this.filteredAlunos.filterPredicate = (data: Aluno, filter: string) => {
+          const searchTerms = filter.split(' ');
+          return searchTerms.every(term => 
+            (data.nome?.toLowerCase().includes(term) || '') ||
+            (data.matricula?.toString().includes(term) || '') ||
+            (data.id?.toString().includes(term) || '')
+          );
+        };
       },
       error => console.error('Erro ao carregar Alunos:', error)
     );
@@ -62,10 +70,6 @@ export class ListagemAlunosComponent implements OnInit {
 
   applyFilter(): void {
     const filterValue = this.searchQuery.trim().toLowerCase();
-    if (filterValue) {
-      this.filteredAlunos.filter = filterValue;
-    } else {
-      this.filteredAlunos.data = this.Alunos;
-    }
+    this.filteredAlunos.filter = filterValue;
   }
 }
