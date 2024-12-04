@@ -1,23 +1,48 @@
-nav {
-    background-color: #007bff;
-    padding: 10px;
-  
-    ul {
-      display: flex;
-      justify-content: space-around;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-  
-      li a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-  
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-  
+.stylenav {
+  background-color: #00214a;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  z-index: 1000; 
+}
+
+.navbar-logo {
+  height: auto;
+  width: 150px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.stylenav .container-fluid {
+  display: flex;
+  align-items: center;
+}
+
+.stylenav .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.stylenav .navbar-nav .nav-item {
+  margin-left: 15px;
+}
+
+.custom-navbar .navbar-brand,
+.stylenav .nav-link {
+  color: rgba(179, 175, 175, 0.942);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.custom-navbar .navbar-brand,
+.stylenav .nav-link:hover {
+  color: white;
+}

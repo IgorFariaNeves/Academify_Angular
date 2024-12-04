@@ -12,7 +12,6 @@ export class AlunoService {
   private apiURL = 'http://localhost:8080/api/aluno'; 
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    // Adicione aqui outros cabeçalhos, como Authorization, se necessário
   });
 
   constructor(private http: HttpClient) { }
@@ -45,7 +44,9 @@ export class AlunoService {
       catchError(this.handleError)
     );
   }
-
+  contarAlunos(): Observable<number> {
+    return this.http.get<number>(`${this.apiURL}/total`);
+  }
   private handleError(error: any) {
     console.error('Ocorreu um erro:', error);
     return throwError(() => new Error('Algo deu errado!'));

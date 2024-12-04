@@ -7,11 +7,12 @@ import { EditarComponent } from './pages/editar/editar.component';
 import { VisualizarAlunoComponent } from './pages/visualizar-aluno/visualizar-aluno.component';
 
 const routes: Routes = [
-  {path: 'alunos', component: ListagemAlunosComponent},
-  {path: 'editar-aluno/:id', component: EditarComponent},
-  {path: 'visualizar-aluno/:id', component: VisualizarAlunoComponent},
-  {path: '', component: PrincipalComponent},
-  {path: 'criar-conta', component: NovoAlunoComponent},
+  {path: '', redirectTo: 'pagina-principal', pathMatch: 'full'},
+  {path: 'alunos', component: ListagemAlunosComponent, title: 'Listagem de Alunos'},
+  {path: 'editar-aluno/:id', component: EditarComponent, title: 'Editar Aluno'},
+  {path: 'visualizar-aluno/:id', component: VisualizarAlunoComponent, title: 'Ver Aluno' },
+  {path: 'pagina-principal', component: PrincipalComponent, title: 'Pagina Principal'},
+  {path: 'criar-conta', component: NovoAlunoComponent, title:'Criar Conta'},
   {path: 'editar', component: EditarComponent}
 ];
 

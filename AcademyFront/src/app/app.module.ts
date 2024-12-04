@@ -19,7 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { getPtBRPaginatorIntl } from './ptbr-paginator-intl';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +45,16 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
-  providers: [ provideHttpClient(withInterceptorsFromDi())],
+  providers: [ provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: MatPaginatorIntl, 
+      useValue: getPtBRPaginatorIntl()
+    },
+  ],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

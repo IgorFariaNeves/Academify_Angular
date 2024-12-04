@@ -1,61 +1,151 @@
+// Variáveis de cores
+$primary-color: #4a90e2;
+$secondary-color: #5f6d7a;
+$error-color: #e74c3c;
+$success-color: #2ecc71;
+$background-light: #f4f7f6;
+$border-color: #e0e4e7;
+
+// Mixins para reutilização
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease-in-out) {
+  transition: $property $duration $timing;
+}
+
 .aluno-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.05), 
+    0 20px 48px rgba(0, 0, 0, 0.03);
   
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  
-    .form-group {
-      margin-bottom: 15px;
-  
-      label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-  
-      input {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-    }
-  
-    .btn-primary {
-      width: 100%;
-      padding: 10px;
-      background-color: #007bff;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
-  
-    .error-message {
-      color: #d9534f;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 15px;
-    }
-  
-    .success-message {
-      color: #28a745;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 15px;
+  @media (max-width: 600px) {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  h2 {
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: $primary-color;
     }
   }
-  
+
+  .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: $secondary-color;
+      font-weight: 500;
+      @include transition(color);
+
+      &:focus-within {
+        color: $primary-color;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid $border-color;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      @include transition(all, 0.25s);
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      &::placeholder {
+        color: lighten($secondary-color, 30%);
+      }
+    }
+
+    small {
+      color: $error-color;
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+  }
+
+  button {
+    @include flex-center;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    @include transition;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+      background-color: lighten($secondary-color, 40%);
+      cursor: not-allowed;
+    }
+  }
+
+  .error-message {
+    color: $error-color;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 500;
+    animation: shake 0.4s ease-in-out;
+  }
+}
+
+// Animações
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 70% { transform: translateX(-2px); }
+  40%, 60% { transform: translateX(2px); }
+  50% { transform: translateX(0); }
+}

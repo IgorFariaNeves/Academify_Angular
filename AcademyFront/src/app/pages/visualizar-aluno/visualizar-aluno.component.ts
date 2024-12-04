@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlunoService } from '../../service/Aluno.service';
 import { Aluno } from '../../../model/Aluno';
 
@@ -14,7 +14,8 @@ export class VisualizarAlunoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    private alunoService: AlunoService
+    private alunoService: AlunoService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,5 +26,8 @@ export class VisualizarAlunoComponent implements OnInit {
         error => console.error('Erro ao carregar o aluno:', error)
       );
     }
+  }
+  voltarParaListagem() {
+    this.router.navigate(['/alunos']);
   }
 }
