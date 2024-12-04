@@ -1,48 +1,95 @@
-.stylenav {
-  background-color: #00214a;
+.custom-nav {
+  background: linear-gradient(45deg, #000000, #0e0e0e);
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  z-index: 1000; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+
+    .navbar-logo {
+      height: 50px;
+      width: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .navbar-menu {
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .nav-item {
+        .nav-link {
+          color: #f8f9fa;
+          font-size: 1rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          transition: background-color 0.3s ease, color 0.3s ease;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+          }
+
+          &.active {
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+        }
+      }
+    }
+  }
 }
 
-.navbar-logo {
-  height: auto;
-  width: 150px;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-}
 
-.stylenav .container-fluid {
-  display: flex;
-  align-items: center;
-}
+@media (max-width: 768px) {
+  .custom-nav {
+    flex-direction: column;
 
-.stylenav .navbar-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-grow: 1;
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-.stylenav .navbar-nav .nav-item {
-  margin-left: 15px;
-}
+    .navbar-menu {
+      margin-top: 1rem;
+      width: 100%;
 
-.custom-navbar .navbar-brand,
-.stylenav .nav-link {
-  color: rgba(179, 175, 175, 0.942);
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
+      .navbar-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
 
-.custom-navbar .navbar-brand,
-.stylenav .nav-link:hover {
-  color: white;
+        .nav-item {
+          .nav-link {
+            padding: 0.5rem 1.5rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }

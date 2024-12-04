@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-lg stylenav">
-  <div class="container-fluid">
-    <div class="d-flex align-items-center"> 
-      <img src="logo.svg" alt="logo" class="navbar-logo" routerLink="pagina-principal" style="cursor: pointer;">
+<nav class="navbar custom-nav">
+  <div class="container">
+    <div class="navbar-brand">
+      <img src="logo.svg" alt="logo" class="navbar-logo" routerLink="pagina-principal" />
     </div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="navbar-menu">
+      <ul class="navbar-links">
         <li class="nav-item">
           <a routerLink="/" class="nav-link" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/alunos" class="nav-link" routerLinkActive="active">Listagem de Alunos</a>
+          <a routerLink="/alunos" class="nav-link" routerLinkActive="active">Lista de Alunos</a>
         </li>
         <li class="nav-item" *ngIf="!isUsuarioLogado">
           <a routerLink="/criar-conta" class="nav-link" routerLinkActive="active">Criar Conta</a>

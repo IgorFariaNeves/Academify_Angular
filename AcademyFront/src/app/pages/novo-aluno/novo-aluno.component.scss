@@ -1,12 +1,12 @@
-// Variáveis de cores
-$primary-color: #4a90e2;
+
+$primary-color: #000000;
 $secondary-color: #5f6d7a;
 $error-color: #e74c3c;
 $success-color: #2ecc71;
 $background-light: #f4f7f6;
 $border-color: #e0e4e7;
 
-// Mixins para reutilização
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -17,16 +17,15 @@ $border-color: #e0e4e7;
   transition: $property $duration $timing;
 }
 
+
 .aluno-container {
   max-width: 500px;
   margin: 3rem auto;
   padding: 2.5rem;
   background-color: white;
   border-radius: 12px;
-  box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.05), 
-    0 20px 48px rgba(0, 0, 0, 0.03);
-  
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 20px 48px rgba(0, 0, 0, 0.03);
+
   @media (max-width: 600px) {
     margin: 1rem;
     padding: 1.5rem;
@@ -109,7 +108,7 @@ $border-color: #e0e4e7;
     font-weight: 600;
     cursor: pointer;
     @include transition;
-    
+
     &:hover {
       background-color: darken($primary-color, 10%);
     }
@@ -131,7 +130,7 @@ $border-color: #e0e4e7;
 
 // Animações
 @keyframes fadeIn {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(-10px);
   }
